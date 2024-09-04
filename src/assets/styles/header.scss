@@ -1,0 +1,25 @@
+.header {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+
+
+}
+
+.header-bg {
+  display: flex;
+  justify-content: space-between;
+  @include adaptive-padding(48, 24, left);
+  @include adaptive-padding(48, 24, right);
+  @include adaptive-padding(48, 24, top);
+  @include adaptive-padding(48, 24, bottom);
+}
+
+.logo-wrap {
+  p span {
+    @include adaptive-font(18, 13);
+    @include adaptive-padding(48, 24, left)
+  }
+}

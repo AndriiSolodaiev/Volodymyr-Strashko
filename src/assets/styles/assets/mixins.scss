@@ -5,8 +5,9 @@
     font-style: '#{$style}';
 
     src: url('#{$url}.eot');
-    src: url('#{$url}.eot?#iefix') format('embedded-opentype'), url('#{$url}.woff') format('woff'),
-      url('#{$url}.ttf') format('truetype');
+    src: url('#{$url}.eot?#iefix') format('embedded-opentype'),
+    url('#{$url}.woff') format('woff'),
+    url('#{$url}.ttf') format('truetype');
   }
 }
 
@@ -37,6 +38,7 @@ $screen-height: 720;
 @function vmax($pixels, $context: $full-width) {
   @return #{($pixels/$context) * 100}vmax;
 }
+
 @function vw($pixels, $context: $full-width) {
   @return #{($pixels/$context) * 100}vw;
 }
@@ -56,8 +58,39 @@ $screen-height: 720;
     @content;
   }
 }
+
 @mixin desktop() {
   @media screen and (min-width: 1920px) {
     @content;
+  }
+}
+
+@mixin adaptive-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media screen and (max-width: 767px) {
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px)/1920));
+
+  }
+
+  @media screen and (min-width: 767px) {
+    font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / 1920));
+
+  }
+}
+
+@mixin adaptive-padding($pcSize, $mobSize, $position) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media screen and (max-width: 767px) {
+    padding-#{$position}: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px)/1920));
+
+  }
+
+  @media screen and (min-width: 767px) {
+    padding-#{$position}: calc(#{$mobSize + px} + #{$addSize} * (100vw / 1920));
+
   }
 }
