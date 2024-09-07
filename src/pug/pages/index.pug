@@ -26,97 +26,111 @@ block scripts
 block content
   section.hero 
     .hero-bg 
-      img(src="" alt="").hero-img
-      h1.hero-title Володимир Страшко
-      ul.hero-list 
-        li Підприємець
-        li Консультант
-        li Бізнес-тренер
-        li Експерт з EDTECH
-      ul.socil-list 
-        li 
-          a(href="") Facebook
-        li 
-          a(href="") Linkedin
-        li 
-          a(href="") Instagram
+      .hero-img
+      .hero-text-contant
+        h1.hero-title Володимир 
+          br 
+          | Страшко
+        ul.hero-list 
+          li Підприємець
+          li Консультант
+          li Бізнес-тренер
+          li Експерт з EDTECH
+        ul.socil-list 
+          li 
+            a(href="") Facebook
+          li 
+            a(href="") Linkedin
+          li 
+            a(href="") Instagram
   section.about 
     h2.section-title ПРО МЕНЕ
     p.section-text Підприємець і СEO з більш ніж десятирічним досвідом роботи в EdTech, консалтингу, телекомунікаціях та державному управлінні. Доктор філософії з економіки (PhD), експерт з людського капіталу. Cертифікований бізнес- тренер. 
     p.section-slogan Навчив 
-      span.accent-text 
-      | понад 2000 підприємців управлінню командами, проєктами та процесами
+      span.accent-text понад 2000 підприємців
+      | управлінню командами, проєктами та процесами
   section.partners 
     h2.section-title Mої клієнти та партнери:
-    .swiper-partners 
-      .swiper-wrapper 
-        .swiper-slide 
-          +svg("partner1")
-        .swiper-slide 
-          +svg("partner2")
-        .swiper-slide 
-          +svg("partner3")
-        .swiper-slide 
-          +svg("partner4")
-        .swiper-slide 
-          +svg("partner5")
-        .swiper-slide 
-          +svg("partner6")
-        .swiper-slide 
-          +svg("partner7")
-        .swiper-slide 
-          +svg("partner8")
-        .swiper-slide 
-          +svg("partner9")
-        .swiper-slide 
-          +svg("partner10")
-        .swiper-slide 
-          +svg("partner11")
-        .swiper-slide 
-          +svg("partner12")
-        .swiper-slide 
-          +svg("partner13")
-        .swiper-slide 
-          +svg("partner14")
-        .swiper-slide 
-          +svg("partner15")
-        .swiper-slide 
-          +svg("partner16")
-        .swiper-slide 
-          +svg("partner17")
-        .swiper-slide 
-          +svg("partner18")
-        .swiper-slide 
-          +svg("partner19")
-        .swiper-slide 
-          +svg("partner20")
-  section.filler-photo 
-    img(src="" alt="")
+      <svg class="expand-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.40773 0.393826L6.40603 8.44647L10.3104 4.56885L10.8767 5.13908L5.98228 10L1.11662 5.10083L1.70988 4.51163L5.58587 8.41432L5.58756 0.426106L6.40773 0.393826Z" fill="#1D1D1D" fill-opacity="0.5"/>
+        <path d="M6.55773 0.393857L6.55777 0.237805L6.40183 0.243942L5.58166 0.276222L5.43759 0.281893L5.43756 0.426075L5.43595 8.0505L1.81631 4.40593L1.71061 4.2995L1.60418 4.4052L1.01092 4.9944L0.904492 5.1001L1.01019 5.20653L5.87585 10.1057L5.98155 10.2121L6.08798 10.1064L10.9824 5.24551L11.0888 5.13981L10.9831 5.03338L10.4168 4.46315L10.3111 4.35672L10.2047 4.46242L6.55611 8.08601L6.55773 0.393857Z" stroke="#1D1D1D" stroke-opacity="0.5" stroke-width="0.3" stroke-linecap="square"/>
+      </svg>
+    ul.partners-list
+      li 
+        img(alt="partners" src="./assets/images/partners/partner1.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner2.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner3.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner4.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner5.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner6.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner7.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner8.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner9.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner10.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner11.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner12.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner13.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner14.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner15.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner16.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner17.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner18.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner19.png")
+      li 
+        img(alt="partners" src="./assets/images/partners/partner20.png")
+  section.filler-photo1 
+    .right-border 
+    .left-border
+    img(src="./assets/images/filler1.jpg" alt="filler")
   section.projects 
     h2.section-title Проєкти
+      
     p.section-descr У моєму портфоліо десятки реалізованих національних освітніх EdTech проєктів
     ul.projects-list 
       li
         a(href="").project
           .project__text-wrap
-            label.project__position
-            h3.project__name
+            label.project__position Co-founder
+            h3.project__name HR You
+          img(src="./assets/images/projects/project1.png", alt="project")
         a(href="").project
           .project__text-wrap
-            label.project__position
-            h3.project__name
+            label.project__position Chief Methodologist
+            h3.project__name Association of Innovative and Digital Education
+          img(src="./assets/images/projects/project2.png", alt="project")
         a(href="").project
           .project__text-wrap
-            label.project__position
-            h3.project__name
+            label.project__position CEO
+            h3.project__name UNicorn SChool
+          img(src="./assets/images/projects/project3.png", alt="project")
         a(href="").project
           .project__text-wrap
-            label.project__position
-            h3.project__name
+            label.project__position CEO
+            h3.project__name EDMAPS
+          img(src="./assets/images/projects/project4.png", alt="project")
         a(href="").project
           .project__text-wrap
-            label.project__position
-            h3.project__name
+            label.project__position Mentor
+            h3.project__name BOArd
+          img(src="./assets/images/projects/project5.png", alt="project")
   section.coach
     h2.section-title Сертифікований бізнес коуч і ментор 
     p.coach-descr Провів понад 500 тренінгів    
@@ -162,21 +176,21 @@ block content
           h3 Персональні консультації з управління бізнесом та командами 
           p Персональний консалтинг з управління бізнесом та командою, який допоможе вам оптимізувати процеси та підвищити ефективність, враховуючи специфіку вашого бізнесу.
         button.hover-btn
-          +svg("envolve")
+          img(alt="partners" src="./assets/images/partners/envolve")
           p Зв’яжіться зі мною
       li
         .text-wrap 
           h3 Персональні консультації з управління бізнесом та командами 
           p Персональний консалтинг з управління бізнесом та командою, який допоможе вам оптимізувати процеси та підвищити ефективність, враховуючи специфіку вашого бізнесу.
         button.hover-btn
-          +svg("envolve")
+          img(alt="partners" src="./assets/images/partners/envolve")
           p Зв’яжіться зі мною
       li
         .text-wrap 
           h3 Персональні консультації з управління бізнесом та командами 
           p Персональний консалтинг з управління бізнесом та командою, який допоможе вам оптимізувати процеси та підвищити ефективність, враховуючи специфіку вашого бізнесу.
         button.hover-btn
-          +svg("envolve")
+          img(alt="partners" src="./assets/images/partners/envolve")
           p Зв’яжіться зі мною
   section.questions 
     h2.question__title 
@@ -228,23 +242,23 @@ block content
     ul.courses-list 
       li
         h3 Управління людьми та проектами
-        +svg("arrow")
+        img(alt="partners" src="./assets/images/partners/arrow")
       li
         h3 Лідерство в парламентській службі
-        +svg("arrow")
+        img(alt="partners" src="./assets/images/partners/arrow")
       li
         h3 Основи підприємницьких навичок
-        +svg("arrow")
+        img(alt="partners" src="./assets/images/partners/arrow")
       li
         h3 Професія: Викладач (Мистецтво викладання)
-        +svg("arrow")
+        img(alt="partners" src="./assets/images/partners/arrow")
     ul.mobile-open-courses-svg 
       li 
-        +svg("courses1")
+        img(alt="partners" src="./assets/images/partners/courses1")
       li 
-        +svg("courses2")
+        img(alt="partners" src="./assets/images/partners/courses2")
       li 
-        +svg("courses3")
+        img(alt="partners" src="./assets/images/partners/courses3")
   section.filler-photo-2
     img(src="" alt="")
 
@@ -254,19 +268,19 @@ block content
     .swiper-reviews
       .swiper-wrapper 
         .swiper-slide 
-          +svg("review").decor
+          img(alt="partners" src="./assets/images/partners/review").decor
           p Дуже структурований і корисний курс. Багато моментів Володимир підкріплює своїм особистим досвідом, який цікаво і важливо почути. Деякі кейси були просто безцінними, і вся команда досі їх пам'ятає (особливо про "Золоті горіхи") 🙂. Рекомендую курс не тільки початківцям, але й досвідченим фахівцям. Володимир вміє все чітко викласти, допомагає структурувати думки. Вова, дякую тобі! І якщо у мене буде можливість, я б із задоволенням відвідав ваш курс ще раз! :)
           .review-author-wrap 
             img(src="" alt="").review-author-img
             p.review-author-name Світлана Єфремова 
         .swiper-slide 
-          +svg("review").decor
+          img(alt="partners" src="./assets/images/partners/review").decor
           p Дуже структурований і корисний курс. Багато моментів Володимир підкріплює своїм особистим досвідом, який цікаво і важливо почути. Деякі кейси були просто безцінними, і вся команда досі їх пам'ятає (особливо про "Золоті горіхи") 🙂. Рекомендую курс не тільки початківцям, але й досвідченим фахівцям. Володимир вміє все чітко викласти, допомагає структурувати думки. Вова, дякую тобі! І якщо у мене буде можливість, я б із задоволенням відвідав ваш курс ще раз! :)
           .review-author-wrap 
             img(src="" alt="").review-author-img
             p.review-author-name Світлана Єфремова 
         .swiper-slide 
-          +svg("review").decor
+          img(alt="partners" src="./assets/images/partners/review").decor
           p Дуже структурований і корисний курс. Багато моментів Володимир підкріплює своїм особистим досвідом, який цікаво і важливо почути. Деякі кейси були просто безцінними, і вся команда досі їх пам'ятає (особливо про "Золоті горіхи") 🙂. Рекомендую курс не тільки початківцям, але й досвідченим фахівцям. Володимир вміє все чітко викласти, допомагає структурувати думки. Вова, дякую тобі! І якщо у мене буде можливість, я б із задоволенням відвідав ваш курс ще раз! :)
           .review-author-wrap 
             img(src="" alt="").review-author-img

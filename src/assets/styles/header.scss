@@ -18,8 +18,105 @@
 }
 
 .logo-wrap {
-  p span {
+  max-width: 32px;
+  
+  height: 32px;
+  background-color: $wc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  transition: max-width 0.5s ease-in-out;
+  @include adaptive-max-width(46, 32);
+  @include adaptive-height(46, 32);
+  @include adaptive-padding(16.5, 11, left);
+  @include adaptive-padding(16.5, 11, right);
+  &:hover {
+    max-width: 200px;
+    @include adaptive-padding(16.5, 11, right);
+    p>span{
+      opacity: 1;
+    }
+  }
+  p {
+    color:$accent-color;
+    overflow: hidden;
+    font-weight: 900;
+    
     @include adaptive-font(18, 13);
-    @include adaptive-padding(48, 24, left)
+   
+
+    span {
+      opacity: 0;
+      text-transform: uppercase;
+      transition: opacity 0.5s ease-in-out;
+    @include adaptive-font(18, 13);
+    
+  }}
+}
+.call-us-btn {
+  span {
+    display: none;
+@include tablet {
+    display: inline-block;
+  }
+  }
+  
+}
+.general-btn {
+  
+  color:$wc;
+  border: 1px solid $wc;
+  @include adaptive-font(20, 13);
+  @include adaptive-padding(24, 16, left);
+  @include adaptive-padding(24, 16, right);
+  @include adaptive-padding(12, 8, top);
+  @include adaptive-padding(12, 8, bottom);
+  @include adaptive-radius(50,35);
+}
+.tools-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  @include tablet {
+    gap: 16px;
+  }
+}
+.lang-wrap-relative{
+  position: relative;
+  width: 30px;
+  @include adaptive-width(68,53);
+  @include adaptive-height(46,32);
+}
+.language-wrap {
+  position: absolute;
+  top: 0;
+  left:0;
+  color:$wc;
+  border: 1px solid $wc;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out, border-radius 0.4s ease-in-out;
+  @include adaptive-radius(50,35);
+  @include adaptive-padding(24, 16, left);
+  @include adaptive-padding(24, 16, right);
+  @include adaptive-padding(12, 8, top);
+  @include adaptive-padding(12, 8, bottom);
+  @include adaptive-max-height(44, 32);
+  &:hover{
+    max-height: 100px;
+    border-radius: 20px;
+  }
+  li:first-child {
+    pointer-events: none;
+    margin-bottom: 15px;
+    @include laptop {
+      margin-bottom: 20px;
+    }
+  }
+  li a {
+    
+    text-transform: uppercase;
+    color: $wc;
+    @include adaptive-font(20, 13);
   }
 }

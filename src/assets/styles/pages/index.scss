@@ -1,0 +1,233 @@
+.hero-bg {
+  background-image: url("../images/Backgraund-mob.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  position:relative;
+  display: flex;
+  align-items: flex-end;
+  @include tablet {
+    background-image: url("../images/Backgraund.jpg");
+  }
+}
+.hero-img {
+  background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.00) 62.58%, rgba(96, 29, 0, 0.60) 79.6%, #D23F00 100%), url("../images/portrait-mob.png");
+  width: 100%;
+  height: 90%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top right;
+  @include tablet {
+    background-image: url("../images/Backgraund.jpg");
+  }
+}
+.hero-text-contant{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  @include adaptive-padding(48, 16, left);
+  @include adaptive-padding(48, 16, right);
+  @include adaptive-padding(72, 36, bottom);
+}
+.hero-title{
+  text-transform: uppercase;
+  color: $wc;
+  font-weight: 700;
+  @include adaptive-padding(20, 16, bottom);
+  @include adaptive-font(120, 48);
+}
+.hero-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+  column-gap: 10px;
+  margin-bottom: 60px;
+  li{
+    color:$wc;
+    font-weight: 200;
+    line-height: 150%;
+    @include adaptive-font(24, 15);
+  }
+}
+.socil-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 400;
+  li a{
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: $wc;
+    @include adaptive-font(16, 12);
+  }
+}
+
+//about
+
+.about {
+ padding-top: 70px;
+ @include adaptive-padding(48, 16, left);
+  @include adaptive-padding(48, 16, right);
+  .section-title{
+    margin-bottom: 16px;}
+}
+
+.section-title{
+  color:$accent-color;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 16px;
+  @include adaptive-font(16, 12);
+
+}
+.section-text{
+  color:$text-color;
+  font-weight: 300;
+  @include adaptive-font(19, 15);
+  @include adaptive-padding(140, 54, bottom);
+}
+
+.section-slogan {
+  color:$text-color;
+  font-weight: 200;
+  @include adaptive-font(90, 44);
+  span {
+    color: $accent-color;
+  }
+}
+
+.partners {
+  @include adaptive-padding(108, 36, top);
+  @include adaptive-padding(48, 16, left);
+  @include adaptive-padding(48, 16, right);
+  .section-title {
+    margin-bottom: 36px;
+    position: relative;
+    width: 100%;
+  }
+}
+.expand-arrow{
+position: absolute;
+top: 0;
+right: 0;
+width: 10px;
+height: 10px;
+transition: transform 0.5s ease-in-out;
+&.open-list {
+  transform: rotate(180deg);
+}
+@include tablet {
+  display: none;
+}
+}
+.partners-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  transition: max-height 0.5s ease-in-out;
+  max-height: 200px;
+  overflow: hidden;
+  &.open-list {
+    max-height: 500px;
+  }
+  li{
+    width: calc( (100% - 24px * 2 ) / 3);
+    @include adaptive-height(50, 30);
+   
+    img {
+      height: 100%;
+      opacity: 0.5;
+      object-fit: contain;
+    }
+  }
+  @include tablet {
+    max-height: auto;
+    li {width: calc( (100% - 24px * 3 ) / 4);}
+  }
+  @include laptop {
+    gap: 35px;
+    li {width: calc( (100% - 35px * 4 ) / 5);}
+  }
+}
+.filler-photo1 {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  @include adaptive-padding(140, 70, top);
+
+  img {
+    width: 100%
+  }
+  .right-border {
+    height: 100%;
+    width: 10%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $wc;
+    z-index: 1;
+  }
+  .left-border {
+    height: 100%;
+    width: 10%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $wc;
+    z-index: 1;
+  }
+}
+
+.projects {
+
+
+  @include adaptive-padding(48, 16, left);
+  @include adaptive-padding(48, 16, right);
+  @include adaptive-padding(140, 70, top);
+  .section-title{
+    margin-bottom: 16px;
+  }
+}
+
+.section-descr{
+  color: $text-color;
+  font-weight: 400;
+  @include adaptive-padding(100, 70, bottom);
+
+  @include adaptive-font(76, 30);
+}
+.projects-list {
+  display: flex;
+  flex-direction: column;
+
+}
+.project{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1px solid rgba(29, 29, 29, 0.15) ;
+  padding: 24px 0;
+  .project__text-wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    .project__position {
+      color: $gray;
+      font-weight: 300;
+      text-transform: uppercase;
+      @include adaptive-font(16, 10);
+    }
+    .project__name{
+      color:$text-color;
+      font-weight: 500;
+      text-transform: uppercase;
+      max-width: 70%;
+      @include adaptive-font(20, 16);
+    }
+    
+  }
+  img {
+    height: auto;
+    max-width: 30%;
+  }
+}

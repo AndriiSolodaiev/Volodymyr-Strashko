@@ -7,37 +7,12 @@
 //   font-style: normal;
 // }
 
-// @font-face {
-//   font-family: 'HelveticaNeueCyr';
-//   src: local('HelveticaNeueCyr Light'), local('HelveticaNeueCyr-Light'),
-//     url('../fonts/HelveticaNeueCyr-Light.woff') format('woff'),
-//     url('../fonts/HelveticaNeueCyr-Light.woff2') format('woff2');
-//   font-weight: 300;
-//   font-style: normal;
-// }
 
-// @font-face {
-//   font-family: 'HelveticaNeueCyr';
-//   src: local('HelveticaNeueCyr Roman'), local('HelveticaNeueCyr-Roman'),
-//     url('../fonts/HelveticaNeueCyr-Roman.woff') format('woff'),
-//     url('../fonts/HelveticaNeueCyr-Roman.woff2') format('woff2');
-//   font-weight: 400;
-//   font-style: normal;
-// }
-
-// @font-face {
-//   font-family: 'HelveticaNeueCyr';
-//   src: local('HelveticaNeueCyr Medium'), local('HelveticaNeueCyr-Medium'),
-//     url('../fonts/HelveticaNeueCyr-Medium.woff') format('woff'),
-//     url('../fonts/HelveticaNeueCyr-Medium.woff2') format('woff2');
-//   font-weight: 500;
-//   font-style: normal;
-// }
 
 @font-face {
   font-family: 'e-Ukraine';
   src: local('e-Ukraine Thin'), local('e-Ukraine-Thin'),
-    url('../fonts/e-Ukraine-Thin.otf') format('otf');
+    url('../fonts/e-UkraineHead-Thin.otf') format('otf');
   font-weight: 100;
   font-style: normal;
 }
@@ -45,7 +20,7 @@
 @font-face {
   font-family: 'e-Ukraine';
   src: local('e-Ukraine UltraLight'), local('e-Ukraine-UltraLight'),
-    url('../fonts/e-Ukraine-UltraLight.otf') format('otf');
+    url('../fonts/e-UkraineHead-UltraLight.otf') format('otf');
   font-weight: 200;
   font-style: normal;
 }
@@ -53,7 +28,7 @@
 @font-face {
   font-family: 'e-Ukraine';
   src: local('e-Ukraine Light'), local('e-Ukraine-Light'),
-    url('../fonts/e-Ukraine-Light.otf') format('otf');
+    url('../fonts/e-UkraineHead-Light.otf') format('otf');
   font-weight: 300;
   font-style: normal;
 }
@@ -62,7 +37,7 @@
 @font-face {
   font-family: 'e-Ukraine';
   src: local('e-Ukraine Regular'), local('e-Ukraine-Regular'),
-    url('../fonts/e-Ukraine-Regular.otf') format('otf');
+    url('../fonts/e-UkraineHead-Regular.otf') format('otf');
   font-weight: 400;
   font-style: normal;
 }
@@ -70,7 +45,7 @@
 @font-face {
   font-family: 'e-Ukraine';
   src: local('e-Ukraine Medium'), local('e-Ukraine-Medium'),
-    url('../fonts/e-Ukraine-Medium.otf') format('otf');
+    url('../fonts/e-UkraineHead-Medium.otf') format('otf');
   font-weight: 500;
   font-style: normal;
 }
@@ -78,7 +53,58 @@
 @font-face {
   font-family: 'e-Ukraine';
   src: local('e-Ukraine Bold'), local('e-Ukraine-Bold'),
-    url('../fonts/e-Ukraine-Bold.otf') format('otf');
+    url('../fonts/e-UkraineHead-Bold.otf') format('otf');
   font-weight: 700;
   font-style: normal;
 }
+
+//head
+
+// @font-face {
+//   font-family: 'e-Ukraine';
+//   src: local('e-Ukraine Thin'), local('e-Ukraine-Thin'),
+//     url('../fonts/e-UkraineHead-Thin.otf') format('otf');
+//   font-weight: 100;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'e-Ukraine';
+//   src: local('e-Ukraine UltraLight'), local('e-Ukraine-UltraLight'),
+//     url('../fonts/e-UkraineHead-UltraLight.otf') format('otf');
+//   font-weight: 200;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'e-Ukraine';
+//   src: local('e-Ukraine Light'), local('e-Ukraine-Light'),
+//     url('../fonts/e-UkraineHead-Light.otf') format('otf');
+//   font-weight: 300;
+//   font-style: normal;
+// }
+
+
+// @font-face {
+//   font-family: 'e-Ukraine';
+//   src: local('e-Ukraine Regular'), local('e-Ukraine-Regular'),
+//     url('../fonts/e-UkraineHead-Regular.otf') format('otf');
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'e-Ukraine';
+//   src: local('e-Ukraine Medium'), local('e-Ukraine-Medium'),
+//     url('../fonts/e-UkraineHead-Medium.otf') format('otf');
+//   font-weight: 500;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'e-Ukraine';
+//   src: local('e-Ukraine Bold'), local('e-Ukraine-Bold'),
+//     url('../fonts/e-UkraineHead-Bold.otf') format('otf');
+//   font-weight: 700;
+//   font-style: normal;
+// }
