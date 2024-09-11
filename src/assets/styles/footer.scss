@@ -62,7 +62,7 @@
 
 .footer-links-wrap {
   display: flex;
-  align-items: center;
+
   flex-direction: column;
   gap: 70px;
 
@@ -89,6 +89,7 @@
     flex-direction: row;
     gap: 0;
     justify-content: space-between;
+    align-items: center;
 
     .social-list {
       gap: 48px;
