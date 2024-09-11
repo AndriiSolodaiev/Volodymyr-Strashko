@@ -1,0 +1,98 @@
+.footer {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), linear-gradient(0deg, #28694B 0%, #28694B 100%);
+  background-blend-mode: normal, overlay, normal;
+  padding-top: 70px;
+  @include adaptive-padding(48, 24, left);
+  @include adaptive-padding(48, 24, right);
+  @include adaptive-padding(70, 24, bottom);
+}
+
+.footer__title-wrap {
+  position: relative;
+  @include adaptive-margin(120, 179, bottom);
+
+  h2 {
+    font-style: normal;
+    font-weight: 200;
+    line-height: 110%;
+    color: $text-color-light;
+    @include adaptive-font(90, 58);
+    text-align: center;
+  }
+
+  button {
+    position: absolute;
+    bottom: -100px;
+    right: 0;
+    border-radius: 50%;
+    background-color: $accent-color;
+    width: 135px;
+    height: 135px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+
+    svg {
+      width: 35px;
+      height: 35px;
+
+    }
+
+    p {
+      color: $wc;
+      letter-spacing: 0.1em;
+      text-align: center;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+    }
+  }
+
+  @include laptop {
+    button {
+      right: 40%;
+    }
+  }
+}
+
+.footer-links-wrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 70px;
+
+  .social-list {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .creator-link {
+    color: rgba(255, 255, 255, 0.25);
+
+
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    @include adaptive-font(16, 14);
+
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  @include tablet {
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+
+    .social-list {
+      gap: 48px;
+    }
+  }
+
+}

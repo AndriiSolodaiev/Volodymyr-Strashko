@@ -109,6 +109,7 @@ $screen-height: 720;
 
   }
 }
+
 @mixin adaptive-max-width($pcSize, $mobSize) {
   $addSize: $pcSize - $mobSize;
   $addMobSize: $addSize + $addSize * 0.7;
@@ -123,6 +124,7 @@ $screen-height: 720;
 
   }
 }
+
 @mixin adaptive-width($pcSize, $mobSize) {
   $addSize: $pcSize - $mobSize;
   $addMobSize: $addSize + $addSize * 0.7;
@@ -137,6 +139,7 @@ $screen-height: 720;
 
   }
 }
+
 @mixin adaptive-height($pcSize, $mobSize) {
   $addSize: $pcSize - $mobSize;
   $addMobSize: $addSize + $addSize * 0.7;
@@ -151,6 +154,7 @@ $screen-height: 720;
 
   }
 }
+
 @mixin adaptive-max-height($pcSize, $mobSize) {
   $addSize: $pcSize - $mobSize;
   $addMobSize: $addSize + $addSize * 0.7;
@@ -162,6 +166,51 @@ $screen-height: 720;
 
   @media screen and (min-width: 767px) {
     max-height: calc(#{$mobSize + px} + #{$addSize} * (100vw / 1920));
+
+  }
+}
+
+@mixin adaptive-width-i($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media screen and (max-width: 767px) {
+    width: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px)/1920)) !important;
+
+  }
+
+  @media screen and (min-width: 767px) {
+    width: calc(#{$mobSize + px} + #{$addSize} * (100vw / 1920)) !important;
+
+  }
+}
+
+@mixin adaptive-height-i($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media screen and (max-width: 767px) {
+    height: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px)/1920)) !important;
+
+  }
+
+  @media screen and (min-width: 767px) {
+    height: calc(#{$mobSize + px} + #{$addSize} * (100vw / 1920)) !important;
+
+  }
+}
+
+@mixin adaptive-margin($pcSize, $mobSize, $position) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media screen and (max-width: 767px) {
+    margin-#{$position}: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px)/1920));
+
+  }
+
+  @media screen and (min-width: 767px) {
+    margin-#{$position}: calc(#{$mobSize + px} + #{$addSize} * (100vw / 1920));
 
   }
 }
