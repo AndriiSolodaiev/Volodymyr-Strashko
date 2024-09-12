@@ -27,7 +27,8 @@ block content
   section.hero 
     .hero-bg 
       .hero-img
-      .hero-text-contant
+      img.hero-img-pc(src="./assets/images/title-ua.png" alt="title and portrait")
+      .hero-text-content
         h1.hero-title Володимир 
           br 
           | Страшко
@@ -45,7 +46,20 @@ block content
             a(href="") Instagram
   section.about 
     h2.section-title ПРО МЕНЕ
-    p.section-text Підприємець і СEO з більш ніж десятирічним досвідом роботи в EdTech, консалтингу, телекомунікаціях та державному управлінні. Доктор філософії з економіки (PhD), експерт з людського капіталу. Cертифікований бізнес- тренер. 
+    .section-text-wrap
+      p.section-text Підприємець і СEO з більш ніж десятирічним досвідом роботи в EdTech, консалтингу, телекомунікаціях та державному управлінні. Доктор філософії з економіки (PhD), експерт з людського капіталу. Cертифікований бізнес- тренер. 
+      button(data-details-btn)
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="34" viewBox="0 0 35 34" fill="none">
+          <g clip-path="url(#clip0_1098_4497)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.75 11.936H8.5V14.436H9.75H22.2242L9.50483 27.1554L8.62095 28.0393L10.3887 29.807L11.2726 28.9231L23.9996 16.1961V28.6856V29.9356H26.4996V28.6856V13.186V11.936H25.2496H9.75Z" fill="#FF3A00"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_1098_4497">
+              <rect width="34" height="34" fill="white" transform="translate(0.5)"/>
+            </clipPath>
+          </defs>
+        </svg>
+        p Детальніше
     p.section-slogan Навчив 
       span.accent-text понад 2000 підприємців
       | управлінню командами, проєктами та процесами
@@ -111,26 +125,69 @@ block content
             label.project__position Co-founder
             h3.project__name HR You
           img(src="./assets/images/projects/project1.png" alt="project")
+      li
         a(href="").project
           .project__text-wrap
             label.project__position Chief Methodologist
             h3.project__name Association of Innovative and Digital Education
           img(src="./assets/images/projects/project2.png" alt="project")
+      li
         a(href="").project
           .project__text-wrap
             label.project__position CEO
             h3.project__name UNicorn SChool
           img(src="./assets/images/projects/project3.png" alt="project")
+      li
         a(href="").project
           .project__text-wrap
             label.project__position CEO
             h3.project__name EDMAPS
           img(src="./assets/images/projects/project4.png" alt="project")
+      li
         a(href="").project
           .project__text-wrap
             label.project__position Mentor
             h3.project__name BOArd
           img(src="./assets/images/projects/project5.png" alt="project")
+      //- desctop slider
+    .swiper-projects
+      .swiper-wrapper 
+        .swiper-slide 
+          a(href="").project--pc
+            .project__text-wrap--pc
+              label.project__position--pc Co-founder
+              h3.project__name--pc HR You
+            .project-img-wrap
+              img(src="./assets/images/projects/project1.png" alt="project")
+        .swiper-slide
+          a(href="").project--pc
+            .project__text-wrap--pc
+              label.project__position--pc Chief Methodologist
+              h3.project__name--pc Association of Innovative and Digital Education
+            .project-img-wrap
+              img(src="./assets/images/projects/project2.png" alt="project")
+        .swiper-slide
+          a(href="").project--pc
+            .project__text-wrap--pc
+              label.project__position--pc CEO
+              h3.project__name--pc UNicorn SChool
+            .project-img-wrap
+              img(src="./assets/images/projects/project3.png" alt="project")
+        .swiper-slide
+          a(href="").project--pc
+            .project__text-wrap--pc
+              label.project__position--pc CEO
+              h3.project__name--pc EDMAPS
+            .project-img-wrap
+              img(src="./assets/images/projects/project4.png" alt="project")
+        .swiper-slide
+          a(href="").project--pc
+            .project__text-wrap--pc
+              label.project__position--pc Mentor
+              h3.project__name--pc BOArd
+            .project-img-wrap
+              img(src="./assets/images/projects/project5.png" alt="project")
+
   section.coach
     h2.section-title Сертифікований бізнес коуч і ментор 
     p.coach-descr Провів понад 500 тренінгів    
@@ -158,6 +215,21 @@ block content
         .swiper-slide 
           img(src="./assets/images/states/state13.png" alt="state")
           img(src="./assets/images/states/state14.png" alt="state")
+    .state-list 
+      img(src="./assets/images/states/state1.png" alt="state")
+      img(src="./assets/images/states/state2.png" alt="state")
+      img(src="./assets/images/states/state3.png" alt="state")
+      img(src="./assets/images/states/state4.png" alt="state")
+      img(src="./assets/images/states/state5.png" alt="state")
+      img(src="./assets/images/states/state2.png" alt="state")
+      img(src="./assets/images/states/state6.png" alt="state")
+      img(src="./assets/images/states/state7.png" alt="state")
+      img(src="./assets/images/states/state8.png" alt="state")
+      img(src="./assets/images/states/state9.png" alt="state")
+      img(src="./assets/images/states/state10.png" alt="state")
+      img(src="./assets/images/states/state11.png" alt="state")
+      img(src="./assets/images/states/state13.png" alt="state")
+      img(src="./assets/images/states/state14.png" alt="state")
     .swiper-stories
       .swiper-wrapper 
         .swiper-slide 
@@ -192,15 +264,49 @@ block content
       .swiper-pagination 
   section.services
     h2.services-title Чим я можу допомогти
-    .services-filter-btns 
-      button.services-filter-btn.general-btn(data-btn-value="trainings") Тренінги
-      button.services-filter-btn.active.general-btn(data-btn-value="consalting") Консалтинг
-      button.services-filter-btn.general-btn(data-btn-value="moderation") Модерація
-    ul.services-list 
-      li(data-card-value="consalting")
-        .text-wrap 
-          h3 Персональні консультації з управління бізнесом та командами 
-          p Персональний консалтинг з управління бізнесом та командою, який допоможе вам оптимізувати процеси та підвищити ефективність, враховуючи специфіку вашого бізнесу.
+    .section-padding
+      .services-filter-btns 
+        button.services-filter-btn.general-btn(data-btn-value="trainings") Тренінги
+        button.services-filter-btn.active.general-btn(data-btn-value="consalting") Консалтинг
+        button.services-filter-btn.general-btn(data-btn-value="moderation") Модерація
+      ul.services-list 
+        li(data-card-value="consalting")
+          .text-wrap 
+            h3 Персональні консультації з управління бізнесом та командами 
+            p Персональний консалтинг з управління бізнесом та командою, який допоможе вам оптимізувати процеси та підвищити ефективність, враховуючи специфіку вашого бізнесу.
+          button.hover-btn
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+              <path d="M4 4.62793H20C21.1 4.62793 22 5.52793 22 6.62793V18.6279C22 19.7279 21.1 20.6279 20 20.6279H4C2.9 20.6279 2 19.7279 2 18.6279V6.62793C2 5.52793 2.9 4.62793 4 4.62793Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 6.62793L12 13.6279L2 6.62793" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            p Зв’яжіться 
+              br
+              | зі мною
+        li(data-card-value="consalting")
+          .text-wrap 
+            h3 Персональні консультації з управління бізнесом та командами 
+            p Персональний консалтинг з управління бізнесом та командою, який допоможе вам оптимізувати процеси та підвищити ефективність, враховуючи специфіку вашого бізнесу.
+          button.hover-btn
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+              <path d="M4 4.62793H20C21.1 4.62793 22 5.52793 22 6.62793V18.6279C22 19.7279 21.1 20.6279 20 20.6279H4C2.9 20.6279 2 19.7279 2 18.6279V6.62793C2 5.52793 2.9 4.62793 4 4.62793Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 6.62793L12 13.6279L2 6.62793" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            p Зв’яжіться 
+              br
+              | зі мною
+        li(data-card-value="consalting")
+          .text-wrap 
+            h3 Персональні консультації з управління бізнесом та командами 
+            p Персональний консалтинг з управління бізнесом та командою, який допоможе вам оптимізувати процеси та підвищити ефективність, враховуючи специфіку вашого бізнесу.
+          button.hover-btn
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+              <path d="M4 4.62793H20C21.1 4.62793 22 5.52793 22 6.62793V18.6279C22 19.7279 21.1 20.6279 20 20.6279H4C2.9 20.6279 2 19.7279 2 18.6279V6.62793C2 5.52793 2.9 4.62793 4 4.62793Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 6.62793L12 13.6279L2 6.62793" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            p Зв’яжіться 
+              br
+              | зі мною
+      .mobile-hover-btn-wrap
         button.hover-btn
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
             <path d="M4 4.62793H20C21.1 4.62793 22 5.52793 22 6.62793V18.6279C22 19.7279 21.1 20.6279 20 20.6279H4C2.9 20.6279 2 19.7279 2 18.6279V6.62793C2 5.52793 2.9 4.62793 4 4.62793Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -209,39 +315,6 @@ block content
           p Зв’яжіться 
             br
             | зі мною
-      li(data-card-value="consalting")
-        .text-wrap 
-          h3 Персональні консультації з управління бізнесом та командами 
-          p Персональний консалтинг з управління бізнесом та командою, який допоможе вам оптимізувати процеси та підвищити ефективність, враховуючи специфіку вашого бізнесу.
-        button.hover-btn
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-            <path d="M4 4.62793H20C21.1 4.62793 22 5.52793 22 6.62793V18.6279C22 19.7279 21.1 20.6279 20 20.6279H4C2.9 20.6279 2 19.7279 2 18.6279V6.62793C2 5.52793 2.9 4.62793 4 4.62793Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M22 6.62793L12 13.6279L2 6.62793" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          p Зв’яжіться 
-            br
-            | зі мною
-      li(data-card-value="consalting")
-        .text-wrap 
-          h3 Персональні консультації з управління бізнесом та командами 
-          p Персональний консалтинг з управління бізнесом та командою, який допоможе вам оптимізувати процеси та підвищити ефективність, враховуючи специфіку вашого бізнесу.
-        button.hover-btn
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-            <path d="M4 4.62793H20C21.1 4.62793 22 5.52793 22 6.62793V18.6279C22 19.7279 21.1 20.6279 20 20.6279H4C2.9 20.6279 2 19.7279 2 18.6279V6.62793C2 5.52793 2.9 4.62793 4 4.62793Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M22 6.62793L12 13.6279L2 6.62793" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          p Зв’яжіться 
-            br
-            | зі мною
-    .mobile-hover-btn-wrap
-      button.hover-btn
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-          <path d="M4 4.62793H20C21.1 4.62793 22 5.52793 22 6.62793V18.6279C22 19.7279 21.1 20.6279 20 20.6279H4C2.9 20.6279 2 19.7279 2 18.6279V6.62793C2 5.52793 2.9 4.62793 4 4.62793Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M22 6.62793L12 13.6279L2 6.62793" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        p Зв’яжіться 
-          br
-          | зі мною
   section.questions 
     h2.question__title З якими запитами я вже допоміг 
       span своїм клієнтам

@@ -1,5 +1,6 @@
 section {
   background-color: $color-body;
+  position: relative;
 }
 
 .hero {
@@ -31,18 +32,81 @@ section {
   background-size: cover;
   background-position: top right;
 
-  @include tablet {
-    background-image: url("../images/Backgraund.jpg");
+  @include laptop {
+    display: none;
   }
 }
 
-.hero-text-contant {
+.hero-img-pc {
+  display: none;
+
+  @include laptop {
+    display: block;
+    width: 100%;
+    @include adaptive-padding(48, 16, left);
+    @include adaptive-padding(48, 16, right);
+  }
+}
+
+.tablet.landscape,
+.mobile.landscape {
+  .hero-img-pc {
+    display: block;
+    width: 100%;
+    @include adaptive-padding(48, 16, left);
+    @include adaptive-padding(48, 16, right);
+  }
+
+  .hero-img {
+    display: none;
+  }
+
+  .hero-title {
+    display: none;
+  }
+
+  .hero-text-content {
+    width: 100%;
+
+  }
+
+  .hero-list {
+    flex-direction: column;
+    margin-left: auto;
+    width: fit-content;
+    align-items: flex-end;
+    gap: 0;
+
+
+    li {
+      width: fit-content;
+    }
+  }
+
+  .social-list {
+    justify-content: flex-start;
+    gap: 70px;
+  }
+
+  .section-text-wrap {
+
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.hero-text-content {
   position: absolute;
   bottom: 0;
   left: 0;
   @include adaptive-padding(48, 16, left);
   @include adaptive-padding(48, 16, right);
   @include adaptive-padding(72, 36, bottom);
+
+  @include laptop {
+    width: 100%;
+
+  }
 }
 
 .hero-title {
@@ -51,6 +115,12 @@ section {
   font-weight: 700;
   @include adaptive-padding(20, 16, bottom);
   @include adaptive-font(120, 48);
+
+  @include laptop {
+    display: none;
+  }
+
+
 }
 
 .hero-list {
@@ -66,6 +136,19 @@ section {
     line-height: 150%;
     @include adaptive-font(24, 15);
   }
+
+  @include laptop {
+    flex-direction: column;
+    margin-left: auto;
+    width: fit-content;
+    align-items: flex-end;
+    gap: 0;
+    @include adaptive-margin(155, -100, bottom);
+
+    li {
+      width: fit-content;
+    }
+  }
 }
 
 .social-list {
@@ -80,6 +163,11 @@ section {
     color: $wc;
     @include adaptive-font(16, 12);
   }
+
+  @include laptop {
+    gap: 70px;
+    justify-content: flex-start;
+  }
 }
 
 //about
@@ -89,6 +177,11 @@ section {
   background-color: $color-body;
   @include adaptive-padding(48, 16, left);
   @include adaptive-padding(48, 16, right);
+
+  @include laptop {
+    padding-left: 18.2%;
+    padding-right: 17%;
+  }
 
   .section-title {
     margin-bottom: 16px;
@@ -102,13 +195,64 @@ section {
   margin-bottom: 16px;
   @include adaptive-font(16, 12);
 
+  @include laptop {
+    position: absolute;
+    left: 0;
+    @include adaptive-padding(48, 16, left);
+  }
+}
+
+.section-text-wrap {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  button {
+    margin-left: auto;
+    border-radius: 50%;
+    border: 1.5px solid $accent-color;
+
+    width: 135px;
+    height: 135px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+
+    svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    p {
+      color: $accent-color;
+      letter-spacing: 0.1em;
+      text-align: center;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+    }
+  }
 }
 
 .section-text {
   color: $text-color;
+  line-height: 140%;
   font-weight: 300;
   @include adaptive-font(19, 15);
   @include adaptive-padding(140, 54, bottom);
+
+  @include tablet {
+    max-width: 40%;
+  }
 }
 
 .section-slogan {
@@ -126,10 +270,16 @@ section {
   @include adaptive-padding(48, 16, left);
   @include adaptive-padding(48, 16, right);
 
+  @include laptop {
+    padding-left: 18.2%;
+    padding-right: 17%;
+  }
+
   .section-title {
     margin-bottom: 36px;
     position: relative;
     width: 100%;
+    padding: 0;
   }
 }
 
@@ -160,6 +310,10 @@ section {
 
   &.open-list {
     max-height: 500px;
+  }
+
+  @include tablet {
+    max-height: none;
   }
 
   li {
@@ -229,6 +383,11 @@ section {
   @include adaptive-padding(140, 70, top);
   @include adaptive-padding(140, 70, bottom);
 
+  @include laptop {
+    padding-left: 18.2%;
+    padding-right: 17%;
+  }
+
   .section-title {
     margin-bottom: 16px;
   }
@@ -250,6 +409,69 @@ section {
   display: flex;
   flex-direction: column;
 
+  @include laptop {
+    display: none;
+  }
+}
+
+.swiper-projects {
+  display: none;
+
+  @include laptop {
+    display: block;
+  }
+
+  .swiper-slide {
+    width: fit-content !important;
+    margin-left: 12px;
+  }
+}
+
+.project--pc {
+
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 24px;
+  @include adaptive-width(296, 240);
+
+  .project__text-wrap--pc {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .project__position--pc {
+      color: $gray;
+      font-weight: 300;
+      text-transform: uppercase;
+      @include adaptive-font(16, 10);
+    }
+
+    .project__name--pc {
+      color: $text-color;
+      font-weight: 500;
+      text-transform: uppercase;
+      max-width: 70%;
+      @include adaptive-font(20, 16);
+    }
+
+  }
+
+  .project-img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    @include adaptive-width(296, 240);
+    @include adaptive-height(268, 223);
+
+
+    img {
+      filter: grayscale(1);
+      max-width: 70%;
+      max-height: 70%;
+
+    }
+  }
 }
 
 .project {
@@ -258,6 +480,8 @@ section {
   align-items: center;
   border-bottom: 1px solid rgba(29, 29, 29, 0.15);
   padding: 24px 0;
+
+
 
   .project__text-wrap {
     display: flex;
@@ -285,6 +509,7 @@ section {
     height: auto;
     width: auto;
     height: 40px;
+    filter: grayscale(1)
   }
 }
 
@@ -296,9 +521,19 @@ section {
   @include adaptive-padding(140, 70, top);
   @include adaptive-padding(140, 70, bottom);
 
+  @include laptop {
+    padding-left: 18.2%;
+    padding-right: 17%;
+  }
+
   .section-title {
     margin-bottom: 16px;
     color: #69230C;
+
+    @include laptop {
+      max-width: 250px;
+      line-height: 140%;
+    }
   }
 }
 
@@ -317,6 +552,10 @@ section {
 .swiper-state {
   @include adaptive-padding(90, 48, bottom);
 
+  @include laptop {
+    display: none;
+  }
+
   .swiper-slide {
     width: fit-content !important;
 
@@ -333,6 +572,33 @@ section {
     }
   }
 
+}
+
+.state-list {
+  display: none;
+
+  @include laptop {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 60px;
+    row-gap: 45px;
+    padding-bottom: 100px;
+
+    img {
+      height: 40px;
+      width: auto;
+    }
+  }
+
+  @include desktop {
+    column-gap: 72px;
+    row-gap: 54px;
+    padding-bottom: 120px;
+
+    img {
+      height: 48px;
+    }
+  }
 }
 
 .swiper-stories {
@@ -373,26 +639,42 @@ section {
   }
 
   .swiper-slide {
-    width: fit-content !important;
-    margin-right: 20px;
+    // width: fit-content !important;
+    // margin-right: 20px;
     overflow: hidden;
     @include adaptive-radius (20, 11);
 
     video {
       transition: filter 0.3s ease-in-out;
-      width: auto;
+      width: 100%;
       filter: grayscale(1);
-      @include adaptive-height(516, 380);
+      height: auto;
     }
   }
 
 }
 
+.desktop .swiper-stories .swiper-slide:hover video {
+  filter: grayscale(1);
+}
+
 .services {
   background-color: $bg-color;
+
   @include adaptive-padding(48, 16, left);
   @include adaptive-padding(48, 16, right);
   @include adaptive-padding(140, 120, top);
+
+  @include laptop {
+    background-color: $color-body
+  }
+
+  .section-padding {
+    @include laptop {
+      padding-left: 18.2%;
+
+    }
+  }
 
   .services-title {
     color: $text-color;
@@ -410,6 +692,8 @@ section {
     gap: 8px;
 
     li {
+      display: flex;
+      justify-content: space-between;
       background-color: $color-body;
       @include adaptive-padding(36, 24, left);
       @include adaptive-padding(36, 24, right);
@@ -422,11 +706,12 @@ section {
         font-style: normal;
         line-height: 110%;
         letter-spacing: 0.16px;
+        transition: color 0.5s ease-in-out;
         @include adaptive-padding(16, 12, bottom);
         @include adaptive-font(32, 20);
       }
 
-      p {
+      .text-wrap p {
         color: $gray;
         font-weight: 500;
         font-style: normal;
@@ -438,6 +723,109 @@ section {
         display: none;
       }
 
+      @include laptop {
+        border-bottom: 1px solid rgba(29, 29, 29, 0.15);
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        transition: border-color 0.5s ease-in-out;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          background-color: rgba(255, 58, 0, 0.05);
+          width: 100%;
+          height: 100%;
+          transform: translateY(-100%);
+          transition: transform 0.5s ease-in-out;
+        }
+
+        .text-wrap {
+          max-width: 80%;
+          transition: transform 0.5s ease-in-out;
+        }
+
+        .text-wrap p {
+          max-width: 55%;
+        }
+
+        .hover-btn {
+          opacity: 0;
+          margin-left: auto;
+          border-radius: 50%;
+          border: 1.5px solid $accent-color;
+          position: relative;
+          z-index: 2;
+          width: 135px;
+          height: 135px;
+          padding: 10px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+          transform: translateX(-36px);
+
+          svg {
+
+            width: 24px;
+            height: 20px;
+
+            path {
+              stroke: $accent-color;
+              transition: stroke 0.5s ease-in-out;
+            }
+          }
+
+          p {
+            color: $accent-color;
+            letter-spacing: 0.1em;
+            text-align: center;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+            transition: color 0.5s ease-in-out;
+          }
+
+          &:hover {
+            background-color: $accent-color;
+
+            svg path {
+              stroke: $wc;
+            }
+
+            p {
+              color: $text-color-light;
+            }
+          }
+        }
+
+        &:hover {
+          border-color: $accent-color;
+
+          &::before {
+            transform: translateY(0%);
+          }
+
+          .text-wrap {
+            transform: translateX(36px);
+          }
+
+          h3 {
+            color: $accent-color;
+          }
+
+          .hover-btn {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+      }
     }
 
   }
@@ -508,6 +896,10 @@ section {
   flex-direction: column;
   align-items: center;
   @include adaptive-padding(140, 120, top);
+
+  @include laptop {
+    background-color: $color-body;
+  }
 }
 
 .question__title {
@@ -799,6 +1191,10 @@ section {
   @include adaptive-padding(48, 16, right);
   @include adaptive-padding(140, 100, bottom);
 
+  @include laptop {
+    padding-left: 18.2%;
+  }
+
   .courses__title {
     color: $text-color-light;
     font-style: normal;
@@ -940,6 +1336,14 @@ section {
   @include adaptive-padding(48, 16, right);
   @include adaptive-padding(140, 70, bottom);
 
+  @include laptop {
+    padding-left: 18.2%;
+
+    .section-descr {
+      max-width: 50%;
+    }
+  }
+
   .swiper-reviews {
 
 
@@ -1005,6 +1409,15 @@ section {
   @include adaptive-padding(48, 16, right);
   @include adaptive-padding(140, 70, bottom);
 
+  @include laptop {
+    padding-left: 18.2%;
+    padding-right: 15%;
+
+    .section-descr {
+      max-width: 50%;
+    }
+  }
+
   .section-descr {
     max-width: 70%;
     @include adaptive-padding(82, 54, bottom);
@@ -1022,6 +1435,13 @@ section {
       align-items: stretch;
       gap: 24px;
       flex-wrap: wrap;
+    }
+
+    @include laptop {
+
+      column-gap: 53px;
+      row-gap: 100px;
+
     }
   }
 
@@ -1161,6 +1581,12 @@ section {
         }
       }
     }
+
+    @include laptop {
+      width: calc((100% - 108px) / 3);
+
+
+    }
   }
 
   .load-more-wrap {
@@ -1179,6 +1605,11 @@ section {
   @include adaptive-padding(48, 16, left);
   @include adaptive-padding(48, 16, right);
   @include adaptive-padding(200, 70, bottom);
+
+  @include laptop {
+    padding-left: 18.2%;
+    padding-right: 17%;
+  }
 
   .swiper-youtube {
     .swiper-slide {
