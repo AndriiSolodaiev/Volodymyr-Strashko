@@ -1,8 +1,8 @@
-import Swiper, { Autoplay, EffectFade, Pagination } from 'swiper';
-import { Navigation } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/pagination';
+import Swiper, { Autoplay, EffectFade, Pagination, Navigation } from 'swiper';
+
+// import 'swiper/css';
+
+// import 'swiper/css/pagination';
 import { gsap, ScrollTrigger, CustomEase } from 'gsap/all';
 
 import '../modules/helpers/imgParallax';
@@ -25,7 +25,7 @@ function langIdent() {
   const img = document.querySelector('.hero-img-pc');
   if (!img) return;
   if (window.location.href.includes('/en/')) {
-    img.src = './assets/images/title-en.png';
+    img.src = '/wp-content/themes/3d/assets/images/title-en.png';
   }
 
   return;
@@ -63,12 +63,12 @@ fillerTl
     '<',
   );
 const swiperProjects = new Swiper('.swiper-projects', {
-  modules: [Autoplay],
-  speed: 5000,
+  // modules: [Autoplay],
+  speed: 1000,
   slidesPerView: 'auto',
   // spaceBetween: 20,
   // slidesPerView: 1,
-  autoplay: { delay: 10 },
+  // autoplay: { delay: 10 },
   breakpoints: {
     // 360: {
     //   slidesPerView: 1.1,
@@ -122,6 +122,7 @@ if (device.mobile() || device.tablet()) {
     spaceBetween: 20,
     slidesPerView: adaptiveSlidesPerView,
     speed: 1000,
+    lazy: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -166,11 +167,11 @@ if (device.mobile() || device.tablet()) {
 }
 if (device.desktop()) {
   const swiperStories = new Swiper('.swiper-stories', {
-    modules: [Pagination, Autoplay],
+    modules: [Pagination],
     spaceBetween: 20,
     slidesPerView: adaptiveSlidesPerView,
-    speed: 5000,
-    autoplay: { delay: 10 },
+    speed: 1500,
+
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -235,7 +236,7 @@ gsap.to('.question__title', {
     pinSpacing: false, // Видаляємо простір, коли блокує перший блок
   },
   opacity: 0,
-  scale: 1.2,
+  scale: 0.8,
   // y: '-100%', // Другий блок наїжджає на перший
 });
 
@@ -252,6 +253,7 @@ gsap.to('.filler-photo-2', {
 });
 const swiperReviews = new Swiper('.swiper-reviews', {
   modules: [Autoplay],
+  loop: true,
   speed: 5000,
   slidesPerView: 'auto',
   spaceBetween: 8,
@@ -259,8 +261,143 @@ const swiperReviews = new Swiper('.swiper-reviews', {
   autoplay: { delay: 10 },
 });
 const swiperYoutube = new Swiper('.swiper-youtube', {
-  modules: [Autoplay],
-  speed: 5000,
+  // modules: [Autoplay],
+  speed: 1500,
   slidesPerView: 'auto',
-  autoplay: { delay: 10 },
+  // autoplay: { delay: 10 },
+});
+
+//filter services-filter-btn
+const servicesFilterBtn = document.querySelectorAll('.services-filter-btn');
+const services = document.querySelectorAll('.services-list li');
+services.forEach(card => {
+  card.style.display = 'flex';
+  if (card.dataset.cardValue !== 'trainings') {
+    card.style.display = 'none';
+  }
+});
+servicesFilterBtn.forEach(btn =>
+  btn.addEventListener('click', function() {
+    servicesFilterBtn.forEach(btn1 => btn1.classList.remove('active'));
+    btn.classList.add('active');
+    const type = btn.dataset.btnValue;
+    services.forEach(card => {
+      card.style.display = 'flex';
+      if (card.dataset.cardValue !== type) {
+        card.style.display = 'none';
+      }
+    });
+    gsap.fromTo(
+      '.services-list li',
+      { opacity: 0, xPercent: 50 }, // Початкові значення
+      { opacity: 1, xPercent: 0, duration: 0.3, stagger: 0.1 }, // Кінцеві значення з анімацією stagger
+    );
+  }),
+);
+
+// gsap.from('.services-list li', {
+//   opacity: 0,
+//   xPercent: 50,
+//   duration: 2,
+// });
+
+const coursesFilterBtn = document.querySelectorAll('.courses-filter-btn');
+const courses = document.querySelectorAll('.courses-list li');
+courses.forEach(card => {
+  card.style.display = 'list-item';
+  if (card.dataset.name !== 'open') {
+    card.style.display = 'none';
+  }
+});
+coursesFilterBtn.forEach(btn =>
+  btn.addEventListener('click', function() {
+    coursesFilterBtn.forEach(btn1 => btn1.classList.remove('active'));
+    btn.classList.add('active');
+    const type = btn.dataset.name;
+    courses.forEach(card => {
+      card.style.display = 'list-item';
+      if (card.dataset.name !== type) {
+        card.style.display = 'none';
+      }
+    });
+    gsap.fromTo(
+      '.courses-list li',
+      { opacity: 0, xPercent: 50 }, // Початкові значення
+      { opacity: 1, xPercent: 0, duration: 0.3, stagger: 0.1 }, // Кінцеві значення з анімацією stagger
+    );
+  }),
+);
+
+const media = document.querySelectorAll('.media-link');
+const loadMore = document.querySelector('.load-more-btn');
+
+let visibleArticles = 3; // Кількість видимих статей на початку
+
+// Функція для оновлення видимих статей
+function showArticles() {
+  media.forEach((article, index) => {
+    if (index < visibleArticles) {
+      article.style.display = 'block'; // Показуємо статтю
+    } else {
+      article.style.display = 'none'; // Ховаємо статтю
+    }
+  });
+
+  // Оновлюємо текст кнопки в залежності від того, скільки статей показано
+  if (visibleArticles >= media.length) {
+    loadMore.querySelector('.main').textContent = 'Згорнути';
+    loadMore.querySelector('.hover').textContent = 'Згорнути';
+    if (window.location.pathname.includes('en')) {
+      loadMore.querySelector('.main').textContent = 'Roll up';
+      loadMore.querySelector('.hover').textContent = 'Roll up';
+    }
+  } else {
+    loadMore.querySelector('.main').textContent = 'Показати ще';
+    loadMore.querySelector('.hover').textContent = 'Показати ще';
+    if (window.location.pathname.includes('en')) {
+      loadMore.querySelector('.main').textContent = 'Show more';
+      loadMore.querySelector('.hover').textContent = 'Show more';
+    }
+  }
+}
+
+// Початковий виклик для показу статей
+showArticles();
+
+// Обробник події для кнопки "Завантажити ще"
+loadMore.addEventListener('click', () => {
+  if (visibleArticles >= media.length) {
+    // Якщо всі статті показані, згортаємо до початкових 3
+    visibleArticles = 3;
+  } else {
+    // Інакше збільшуємо кількість видимих статей на 3
+    visibleArticles += 3;
+  }
+
+  // Оновлюємо видимі статті
+  showArticles();
+});
+const videoStories = document.querySelectorAll('.stories-video');
+if (device.iphone()) {
+  videoStories.forEach(video =>
+    video.setAttribute('poster', '/wp-content/themes/3d/assets/images/preview.gif'),
+  );
+}
+
+const heroTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.about',
+    start: 'top bottom', // when the top of the trigger hits the top of the viewport
+    end: 'center center', // end after scrolling 500px beyond the start
+    scrub: 1,
+    // smooth scrubbing, takes 1 second to "catch up" to the
+    // markers: true,
+  },
+});
+heroTl.to('.hero-text-content', {
+  opacity: 0.2,
+  yPercent: -200,
+
+  // duration: 1,
+  // ease: 'bounce.out',
 });

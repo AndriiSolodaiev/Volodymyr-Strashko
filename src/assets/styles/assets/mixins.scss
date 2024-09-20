@@ -214,3 +214,18 @@ $screen-height: 720;
 
   }
 }
+
+@mixin adaptive-grid-gap($pcSize, $mobSize, $position) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media screen and (max-width: 767px) {
+    grid-#{$position}-gap: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px)/1920));
+
+  }
+
+  @media screen and (min-width: 767px) {
+    grid-#{$position}-gap: calc(#{$mobSize + px} + #{$addSize} * (100vw / 1920));
+
+  }
+}

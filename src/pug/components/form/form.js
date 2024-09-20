@@ -226,6 +226,8 @@ export default class FormMonster {
   submitForm() {
     return async e => {
       /*  */
+      console.log('form submited');
+
       e.preventDefault();
       this.changeInput()(e);
 
@@ -258,6 +260,8 @@ export default class FormMonster {
   }
 
   listers() {
+    console.log(this.elements.$form);
+
     this.elements.$form.addEventListener('submit', this.submitForm(this.watchedState));
     this.fieldsKey.map(key => {
       const { input } = this.elements.fields[key].inputWrapper;

@@ -58,53 +58,61 @@
   font-style: normal;
 }
 
-//head
+//fixel display
 
-// @font-face {
-//   font-family: 'e-Ukraine';
-//   src: local('e-Ukraine Thin'), local('e-Ukraine-Thin'),
-//     url('../fonts/e-UkraineHead-Thin.otf') format('otf');
-//   font-weight: 100;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'FixelDisplay';
+  src: local('FixelDisplay Thin'), local('FixelDisplay-Thin'),
+    url('../fonts/FixelDisplay-Thin.woff') format('woff'), url('../fonts/FixelDisplay-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: 'e-Ukraine';
-//   src: local('e-Ukraine UltraLight'), local('e-Ukraine-UltraLight'),
-//     url('../fonts/e-UkraineHead-UltraLight.otf') format('otf');
-//   font-weight: 200;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'FixelDisplay';
+  src: local('FixelDisplay ExtraLight'), local('FixelDisplay-ExtraLight'),
+    url('../fonts/FixelDisplay-ExtraLight.woff') format('woff'), url('../fonts/FixelDisplay-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: 'e-Ukraine';
-//   src: local('e-Ukraine Light'), local('e-Ukraine-Light'),
-//     url('../fonts/e-UkraineHead-Light.otf') format('otf');
-//   font-weight: 300;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'FixelDisplay';
+  src: local('FixelDisplay Light'), local('FixelDisplay-Light'),
+    url('../fonts/FixelDisplay-Light.woff') format('woff'), url('../fonts/FixelDisplay-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
 
 
-// @font-face {
-//   font-family: 'e-Ukraine';
-//   src: local('e-Ukraine Regular'), local('e-Ukraine-Regular'),
-//     url('../fonts/e-UkraineHead-Regular.otf') format('otf');
-//   font-weight: 400;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'FixelDisplay';
+  src: local('FixelDisplay Regular'), local('FixelDisplay-Regular'),
+    url('../fonts/FixelDisplay-Regular.woff') format('woff'), url('../fonts/FixelDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: 'e-Ukraine';
-//   src: local('e-Ukraine Medium'), local('e-Ukraine-Medium'),
-//     url('../fonts/e-UkraineHead-Medium.otf') format('otf');
-//   font-weight: 500;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'FixelDisplay';
+  src: local('FixelDisplay Medium'), local('FixelDisplay-Medium'),
+    url('../fonts/FixelDisplay-Medium.woff') format('woff'), url('../fonts/FixelDisplay-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: 'e-Ukraine';
-//   src: local('e-Ukraine Bold'), local('e-Ukraine-Bold'),
-//     url('../fonts/e-UkraineHead-Bold.otf') format('otf');
-//   font-weight: 700;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'FixelDisplay';
+  src: local('FixelDisplay SemiBold'), local('FixelDisplay-SemiBold'),
+    url('../fonts/FixelDisplay-SemiBold.woff') format('woff'), url('../fonts/FixelDisplay-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FixelDisplay';
+  src: local('FixelDisplay Bold'), local('FixelDisplay-Bold'),
+    url('../fonts/FixelDisplay-Bold.woff') format('woff'), url('../fonts/FixelDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}

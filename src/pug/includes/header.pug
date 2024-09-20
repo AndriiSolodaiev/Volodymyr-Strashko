@@ -4,8 +4,11 @@ header.header
       p S
         span trashko 
     .tools-wrap 
-      button.call-us-btn.general-btn(data-call-us-btn) Зв’язатись 
-        span зі мною
+      button.call-us-btn.general-btn(data-call-us-btn ) 
+        span.main Зв’язатись 
+          span.addition зі мною
+        span.hover Зв’язатись 
+          span.addition зі мною
       .lang-wrap-relative
         .language-wrap
           ul.language-list 
@@ -14,7 +17,63 @@ header.header
             li 
               a(href="") EN
 
-
-
-
-
+.overflow.hidden(data-call-us__overflow)
+  .form__container(data-call-us-modal) 
+    .close-btn(data-call-us-modal-close)
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <g clip-path="url(#12)">
+          <path d="M25.5 8.5L8.5 25.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.5 8.5L25.5 25.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <defs>
+          <clipPath id="12">
+            <rect width="34" height="34" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg>
+    h3 Залиште ваш запит
+    +form
+    ul.social-list 
+      li 
+        a(href="") Facebook
+      li 
+        a(href="") Linkedin
+      li 
+        a(href="") Instagram
+.overflow.hidden(data-details__overflow)
+  .form__container(data-details-modal)
+    .close-btn(data-details-modal-close)
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <g clip-path="url(#clip0_1027_5198)">
+          <path d="M25.5 8.5L8.5 25.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.5 8.5L25.5 25.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_1027_5198">
+            <rect width="34" height="34" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg>
+    h3 Детальніше
+    .text-container(data-lenis-prevent)
+      p Підприємець та СЕО з більш ніж десятирічним досвідом в EdTech, консалтингу, телекомі та державному управлінні. Доктор філософії з економіки (PhD), експерт в сфері людського капіталу. Портфоліо включає в себе десятки реалізованих національних освітніх EdTech проєктів, серед яких Мережа українських освітніх хабів:  Освітній Хаб міста Києва,  Академія громад України, Національний проєкт з профорієнтації та побудови карʼєри тощо.
+      p Активний громадський діяч. Учасник робочих груп з реформи освітньої сфери. Учасник “Реформи реформ” - модернізації державної служби України (2020-2022), відповідав за впровадження інновацій в навчанні та підвищення кваліфікації державних службовців категорії “А” .
+      p Ментор, член Етичного комітету та Консультаційної ради (Advisory Board), лідер Освітнього клубу Міжнародної бізнес-спільноти Board. 
+      p Співзасновник компанії HR You (EdTech, розвиток людського капіталу та розробка освітніх платформ)
+      p CEO Unicorn School (дистанційна гейміфікована загальноосвітня школа, яка тричі поспіль (2022-2024) ставала кращою в національних рейтингах
+      p CEO Edmaps (персоналізована гейміфікована освітня платформа для учнів та вчиелів)
+      p Викладач бізнес-шкіл. Навчив управлінню командами, проєктами та процесами більш ніж 2000 підприємців.
+.overflow.hidden(data-youtube__overflow)
+  .close-btn(data-youtube-modal-close)
+    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+      <g clip-path="url(#123)">
+        <path d="M25.5 8.5L8.5 25.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8.5 8.5L25.5 25.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <defs>
+        <clipPath id="123">
+          <rect width="34" height="34" fill="white"/>
+        </clipPath>
+      </defs>
+    </svg>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/teWb5kja7Hg?si=as-c9JnaqqbTv5aH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

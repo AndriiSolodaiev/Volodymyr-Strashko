@@ -5,7 +5,7 @@ section {
 
 .hero {
   position: relative;
-  z-index: -1;
+  z-index: 2;
 }
 
 .hero-bg {
@@ -29,8 +29,8 @@ section {
   width: 100%;
   height: 90%;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top right;
+  background-size: contain;
+  background-position: bottom right;
 
   @include laptop {
     display: none;
@@ -40,17 +40,19 @@ section {
 .hero-img-pc {
   display: none;
 
-  @include laptop {
-    display: block;
-    width: 100%;
-    @include adaptive-padding(48, 16, left);
-    @include adaptive-padding(48, 16, right);
-  }
+  // @include laptop {
+
+  //   display: block;
+  //   width: 100%;
+  //   @include adaptive-padding(48, 16, left);
+  //   @include adaptive-padding(48, 16, right);
+  // }
 }
 
 .tablet.landscape,
 .mobile.landscape {
   .hero-img-pc {
+    pointer-events: none;
     display: block;
     width: 100%;
     @include adaptive-padding(48, 16, left);
@@ -95,6 +97,56 @@ section {
   }
 }
 
+.desktop {
+  @media screen and (min-width: 960px) {
+
+    .hero-img-pc {
+      pointer-events: none;
+      display: block;
+      width: 100%;
+      @include adaptive-padding(48, 16, left);
+      @include adaptive-padding(48, 16, right);
+    }
+
+    .hero-img {
+      display: none;
+    }
+
+    .hero-title {
+      display: none;
+    }
+
+    .hero-text-content {
+      width: 100%;
+
+    }
+
+    .hero-list {
+      flex-direction: column;
+      margin-left: auto;
+      width: fit-content;
+      align-items: flex-end;
+      gap: 0;
+
+
+      li {
+        width: fit-content;
+      }
+    }
+
+    .social-list {
+      justify-content: flex-start;
+      gap: 70px;
+    }
+
+    .section-text-wrap {
+
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
+
 .hero-text-content {
   position: absolute;
   bottom: 0;
@@ -112,7 +164,7 @@ section {
 .hero-title {
   text-transform: uppercase;
   color: $wc;
-  font-weight: 700;
+  font-weight: 600;
   @include adaptive-padding(20, 16, bottom);
   @include adaptive-font(120, 48);
 
@@ -161,12 +213,38 @@ section {
     text-decoration: underline;
     text-transform: uppercase;
     color: $wc;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    line-height: 140%;
+
+    span.hover {
+      position: absolute;
+      color: $wc;
+      transform: translateY(150%);
+      transition: transform 0.4s ease-in-out;
+    }
+
     @include adaptive-font(16, 12);
   }
 
-  @include laptop {
+  @include tablet {
     gap: 70px;
     justify-content: flex-start;
+
+    span.main {
+      transition: transform 0.4s ease-in-out;
+    }
+
+    li a:hover {
+      span.main {
+        transform: translateY(-150%)
+      }
+
+      span.hover {
+        transform: translateY(0%);
+      }
+    }
   }
 }
 
@@ -175,6 +253,8 @@ section {
 .about {
   padding-top: 70px;
   background-color: $color-body;
+  position: relative;
+  z-index: 3;
   @include adaptive-padding(48, 16, left);
   @include adaptive-padding(48, 16, right);
 
@@ -205,6 +285,7 @@ section {
 .section-text-wrap {
   display: flex;
   flex-direction: column;
+  @include adaptive-padding(140, 54, bottom);
 
   @include tablet {
     flex-direction: row;
@@ -229,16 +310,55 @@ section {
     svg {
       width: 34px;
       height: 34px;
+
+      path {
+        transition: fill 0.4s ease-in-out;
+      }
     }
 
     p {
       color: $accent-color;
-      letter-spacing: 0.1em;
+
       text-align: center;
       font-size: 15px;
       font-style: normal;
-      font-weight: 300;
+      font-weight: 500;
       line-height: normal;
+      transition: color 0.4s ease-in-out;
+    }
+
+    @include tablet {
+      overflow: hidden;
+      transform: translateZ(0);
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $accent-color;
+        transform: translateY(-101%);
+        transition: transform 0.4s ease-in-out;
+      }
+
+      &:hover {
+        svg path {
+          fill: $wc
+        }
+
+        p {
+          color: $wc;
+        }
+
+        &::before {
+          transform: translateY(0%);
+        }
+      }
+
     }
   }
 }
@@ -246,9 +366,9 @@ section {
 .section-text {
   color: $text-color;
   line-height: 140%;
-  font-weight: 300;
+  font-weight: 400;
   @include adaptive-font(19, 15);
-  @include adaptive-padding(140, 54, bottom);
+
 
   @include tablet {
     max-width: 40%;
@@ -257,7 +377,7 @@ section {
 
 .section-slogan {
   color: $text-color;
-  font-weight: 200;
+  font-weight: 400;
   @include adaptive-font(90, 44);
 
   span {
@@ -266,6 +386,8 @@ section {
 }
 
 .partners {
+  position: relative;
+  z-index: 3;
   @include adaptive-padding(108, 36, top);
   @include adaptive-padding(48, 16, left);
   @include adaptive-padding(48, 16, right);
@@ -393,6 +515,7 @@ section {
   }
 
   .section-descr {
+    letter-spacing: -0.3px;
     @include adaptive-font(76, 30);
   }
 }
@@ -461,6 +584,7 @@ section {
     justify-content: center;
     align-items: center;
     border: 1px solid rgba(0, 0, 0, 0.10);
+    transition: border-color 0.4s ease-in-out;
     @include adaptive-width(296, 240);
     @include adaptive-height(268, 223);
 
@@ -469,7 +593,19 @@ section {
       filter: grayscale(1);
       max-width: 70%;
       max-height: 70%;
+      transition: transform 0.4s ease-in-out;
 
+    }
+
+    @include tablet {
+
+      &:hover {
+        border-color: $accent-color;
+
+        img {
+          transform: scale(1.1);
+        }
+      }
     }
   }
 }
@@ -487,6 +623,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    max-width: 70%;
 
     .project__position {
       color: $gray;
@@ -505,10 +642,23 @@ section {
 
   }
 
+  .img-wrap-project {
+    height: 50px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
   img {
     height: auto;
-    width: auto;
-    height: 40px;
+    width: 100%;
+    pointer-events: none;
+    object-fit: cover;
+    object-position: center;
+    // height: 50px;
+    // clip-path: polygon(0 20%, 100% 20%, 100% 80%, 0 80%);
     filter: grayscale(1)
   }
 }
@@ -542,6 +692,7 @@ section {
   font-weight: 300;
   @include adaptive-padding(90, 48, bottom);
   @include adaptive-font(76, 36);
+  letter-spacing: -0.36px;
 
   span {
     display: block;
@@ -578,11 +729,18 @@ section {
   display: none;
 
   @include laptop {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 60px;
-    row-gap: 45px;
+    // display: flex;
+    // flex-wrap: wrap;
+    // column-gap: 60px;
+    // row-gap: 45px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 60px;
+    grid-row-gap: 45px;
     padding-bottom: 100px;
+    @include adaptive-grid-gap(60, 10, column);
+    @include adaptive-grid-gap(45, 7.5, row);
 
     img {
       height: 40px;
@@ -605,13 +763,14 @@ section {
   position: relative;
 
   .swiper-pagination {
-    bottom: -20px !important;
+    bottom: -30px !important;
 
     .swiper-pagination-bullet {
       height: 2px;
-      width: 30px;
+      width: 20px;
       position: relative;
       overflow: hidden;
+      border-radius: 0;
 
       &::after {
         content: "";
@@ -641,14 +800,17 @@ section {
   .swiper-slide {
     // width: fit-content !important;
     // margin-right: 20px;
+    height: auto;
     overflow: hidden;
-    @include adaptive-radius (20, 11);
+
 
     video {
       transition: filter 0.3s ease-in-out;
       width: 100%;
       filter: grayscale(1);
       height: auto;
+      transform: translateZ(1);
+      @include adaptive-radius (20, 11);
     }
   }
 
@@ -678,7 +840,7 @@ section {
 
   .services-title {
     color: $text-color;
-    font-weight: 200;
+    font-weight: 400;
     line-height: 100%;
     @include adaptive-font(120, 50);
     @include adaptive-padding(100, 48, bottom);
@@ -690,6 +852,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    min-height: 50vh;
 
     li {
       display: flex;
@@ -723,7 +886,7 @@ section {
         display: none;
       }
 
-      @include laptop {
+      @include tablet {
         border-bottom: 1px solid rgba(29, 29, 29, 0.15);
         position: relative;
         z-index: 1;
@@ -849,13 +1012,25 @@ section {
     background-color: $accent-color;
     border-color: $accent-color;
   }
+
+  @include laptop {
+    &:before {
+      background-color: $accent-color;
+    }
+
+    span.hover {
+      color: $text-color-light;
+    }
+  }
+
+
 }
 
 .mobile-hover-btn-wrap {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 48px 0 72px 0;
+  padding: 36px 0 0px 0;
 
   .hover-btn {
     background-color: $accent-color;
@@ -905,7 +1080,7 @@ section {
 .question__title {
   text-align: center;
   color: $text-color;
-
+  font-weight: 400;
   @include adaptive-font(76, 36);
   @include adaptive-padding(48, 16, left);
   @include adaptive-padding(48, 16, right);
@@ -1076,15 +1251,27 @@ section {
       }
 
       &:nth-child(12) {
-        width: 49%;
+        // width: 49%;
         justify-content: center;
       }
 
       &:nth-child(13) {
-        width: 49%;
+        // width: 49%;
         justify-content: center;
       }
 
+    }
+
+    @media screen and (min-width: 1166px) and (max-width: 1474px) {
+      &:nth-child(12) {
+        width: 32%;
+        justify-content: center;
+      }
+
+      &:nth-child(13) {
+        width: 37%;
+        justify-content: center;
+      }
     }
 
     @media screen and (min-width: 1400px) and (max-width: 1727px) {
@@ -1099,6 +1286,7 @@ section {
       &:nth-child(10) {
         margin-left: 10%;
       }
+
     }
 
     @media screen and (min-width: 1728px) {
@@ -1150,7 +1338,7 @@ section {
       }
 
       &:nth-child(13) {
-        margin-left: 5%;
+        // margin-left: 5%;
 
       }
 
@@ -1198,7 +1386,7 @@ section {
   .courses__title {
     color: $text-color-light;
     font-style: normal;
-    font-weight: 200;
+    font-weight: 300;
     line-height: 110%;
     @include adaptive-font(110, 60);
     @include adaptive-padding(100, 48, bottom);
@@ -1212,6 +1400,7 @@ section {
 
 .courses-filter-btn {
   @extend .services-filter-btn;
+  font-weight: 300;
   color: $text-color-light;
   border: 1.5px solid rgba(255, 255, 255, 0.15);
 }
@@ -1221,6 +1410,28 @@ section {
   flex-direction: column;
   width: 100%;
 
+  li[data-name="author"] {
+    pointer-events: none;
+
+    h3 {
+      opacity: 0.6;
+    }
+
+    h3::after {
+      content: "Coming soon!";
+      // display: block;
+
+      margin-left: 10px;
+      border: 1px solid $accent-color;
+      color: $accent-color;
+      background-color: $wc;
+      padding: 10px;
+      @include adaptive-radius(50, 35);
+      @include adaptive-font(16, 12);
+
+
+    }
+  }
 
   a {
     overflow: hidden;
@@ -1230,6 +1441,7 @@ section {
     justify-content: space-between;
     border-bottom: 0.75px solid rgba(255, 255, 255, 0.20);
     transition: border-color 0.6s ease-in-out;
+    font-weight: 400;
     @include adaptive-padding(48, 24, top);
     @include adaptive-padding(36, 1, right);
     @include adaptive-padding(48, 24, bottom);
@@ -1274,7 +1486,7 @@ section {
 
     h3 {
       font-style: normal;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 120%;
       color: $text-color-light;
       max-width: 80%;
@@ -1325,6 +1537,20 @@ section {
   position: relative;
   z-index: -1;
 
+  img {
+    width: 140%;
+    max-width: none;
+
+
+    transform: translateX(-20%);
+
+    @include tablet {
+      width: 100%;
+      max-width: 100%;
+      transform: none;
+
+    }
+  }
 
 }
 
@@ -1336,10 +1562,16 @@ section {
   @include adaptive-padding(48, 16, right);
   @include adaptive-padding(140, 70, bottom);
 
+  .section-descr {
+    line-height: 100%;
+    letter-spacing: -0.36px;
+  }
+
   @include laptop {
     padding-left: 18.2%;
 
     .section-descr {
+
       max-width: 50%;
     }
   }
@@ -1369,7 +1601,7 @@ section {
 
       .review-text {
         font-style: normal;
-        font-weight: 300;
+        font-weight: 500;
         line-height: 140%;
         color: $text-color;
         @include adaptive-font(20, 14);
@@ -1462,7 +1694,7 @@ section {
       color: $gray;
       font-size: 12px;
       font-style: normal;
-      font-weight: 300;
+      font-weight: 400;
       line-height: normal;
       margin-bottom: 10px;
       @include adaptive-font(14, 12);
@@ -1597,18 +1829,28 @@ section {
   .load-more-btn {
     background-color: $accent-color;
     color: $text-color-light;
+    border: 1px solid $accent-color;
+
+    @include laptop {}
   }
 }
 
 .youtube-videos {
-
+  background-color: $bg-color;
+  @include adaptive-padding(70, 70, top);
   @include adaptive-padding(48, 16, left);
   @include adaptive-padding(48, 16, right);
   @include adaptive-padding(200, 70, bottom);
 
+  .section-descr {
+    letter-spacing: -0.4px;
+  }
+
   @include laptop {
     padding-left: 18.2%;
     padding-right: 17%;
+    background-color: $color-body;
+    padding-top: 0;
   }
 
   .swiper-youtube {
@@ -1654,10 +1896,22 @@ section {
   }
 }
 
+
+
 .filler-photo-3 {
   display: none;
 
   @include laptop {
+    display: block;
+  }
+
+  img {
+    filter: grayscale(1);
+  }
+}
+
+.desktop {
+  .filler-photo-3 {
     display: block;
   }
 }

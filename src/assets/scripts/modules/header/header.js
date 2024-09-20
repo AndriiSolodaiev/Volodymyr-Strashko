@@ -11,36 +11,55 @@
 
 document.body.addEventListener('click', function(evt) {
   const close = evt.target.closest('[data-call-us-modal-close]');
-  const form = evt.target.closest('[data-call-us-modal]');
   const btn = evt.target.closest('[data-call-us-btn]');
   const overflow = document.querySelector('[data-call-us__overflow]');
 
-  const countryList = evt.target.closest('.iti__country-list');
+  const closedetails = evt.target.closest('[data-details-modal-close]');
+  const btndetails = evt.target.closest('[data-details-btn]');
+  const overflowdetails = document.querySelector('[data-details__overflow]');
 
-  const btnUp = evt.target.closest('[data-btn-up]');
+  const closeyoutube = evt.target.closest('[data-youtube-modal-close]');
+  const btnyoutube = evt.target.closest('[data-youtube-btn]');
+  const overflowyoutube = document.querySelector('[data-youtube__overflow]');
 
-  const btnMenuTarget = evt.target.closest('[data-menu-button]');
-  const btnMenu = document.querySelector('[data-menu]');
-  const menu = document.querySelector('[data-menu]');
-  if (btnMenuTarget) {
-    menu.classList.toggle('hidden');
-    header.classList.toggle('menu-is-open');
-    return;
-  }
-  if (btnUp) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
   if (btn) {
-    if (overflow.classList.contains('hidden')) {
-      return overflow.classList.remove('hidden');
-    }
-    return;
+    window.dispatchEvent(new Event('stop-scroll'));
+    return overflow.classList.remove('hidden');
   }
   if (close) {
+    window.dispatchEvent(new Event('start-scroll'));
     return overflow.classList.add('hidden');
   }
   if (evt.target === overflow) {
+    window.dispatchEvent(new Event('start-scroll'));
     return overflow.classList.add('hidden');
+  }
+
+  if (btndetails) {
+    window.dispatchEvent(new Event('stop-scroll'));
+    return overflowdetails.classList.remove('hidden');
+  }
+  if (closedetails) {
+    window.dispatchEvent(new Event('start-scroll'));
+    return overflowdetails.classList.add('hidden');
+  }
+  if (evt.target === overflowdetails) {
+    window.dispatchEvent(new Event('start-scroll'));
+    return overflowdetails.classList.add('hidden');
+  }
+
+  if (btnyoutube) {
+    window.dispatchEvent(new Event('stop-scroll'));
+    overflowyoutube.querySelector('iframe').src = btnyoutube.dataset.href;
+    return overflowyoutube.classList.remove('hidden');
+  }
+  if (closeyoutube) {
+    window.dispatchEvent(new Event('start-scroll'));
+    return overflowyoutube.classList.add('hidden');
+  }
+  if (evt.target === overflowyoutube) {
+    window.dispatchEvent(new Event('start-scroll'));
+    return overflowyoutube.classList.add('hidden');
   }
 });
 
