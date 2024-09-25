@@ -55,10 +55,12 @@ document.body.addEventListener('click', function(evt) {
   }
   if (closeyoutube) {
     window.dispatchEvent(new Event('start-scroll'));
+    overflowyoutube.querySelector('iframe').src = '';
     return overflowyoutube.classList.add('hidden');
   }
   if (evt.target === overflowyoutube) {
     window.dispatchEvent(new Event('start-scroll'));
+    overflowyoutube.querySelector('iframe').src = '';
     return overflowyoutube.classList.add('hidden');
   }
 });

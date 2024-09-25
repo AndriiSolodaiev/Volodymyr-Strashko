@@ -61,6 +61,11 @@
     line-height: 90%;
     @include adaptive-font(90, 50);
     @include adaptive-margin(100, 70, bottom);
+
+    @media screen and (min-width: 768px) and (max-width: 1366px) {
+      font-size: 60px;
+      margin-bottom: 80px;
+    }
   }
 
   .social-list {
@@ -107,7 +112,7 @@
   }
 
   @include desktop {
-    width: 580px;
+    // width: 580px;
   }
 
   .text-container {
@@ -218,7 +223,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 12px;
+  column-gap: 12px;
   width: 100%;
   @include adaptive-margin(48, 36, bottom);
 
@@ -326,7 +331,7 @@ textarea {
       color: $wc;
     }
 
-    @include laptop {
+    @include tablet {
       &::before {
         background-color: $accent-color;
       }

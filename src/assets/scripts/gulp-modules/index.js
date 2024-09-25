@@ -62,28 +62,32 @@ fillerTl
     },
     '<',
   );
-const swiperProjects = new Swiper('.swiper-projects', {
-  // modules: [Autoplay],
-  speed: 1000,
-  slidesPerView: 'auto',
-  // spaceBetween: 20,
-  // slidesPerView: 1,
-  // autoplay: { delay: 10 },
-  breakpoints: {
-    // 360: {
-    //   slidesPerView: 1.1,
-    //   spaceBetween: 8,
-    // },
-    // 768: {
-    //   slidesPerView: 2,
-    //   //   spaceBetween: 20,
-    // },
-    // 1366: {
-    //   // spaceBetween: 20,
-    //   slidesPerView: 3,
-    // },
-  },
-});
+// const swiperProjects = new Swiper('.swiper-projects', {
+//   modules: [Navigation],
+//   speed: 1000,
+//   slidesPerView: 'auto',
+//   // spaceBetween: 20,
+//   // slidesPerView: 1,
+//   // autoplay: { delay: 10 },
+//   breakpoints: {
+//     // 360: {
+//     //   slidesPerView: 1.1,
+//     //   spaceBetween: 8,
+//     // },
+//     // 768: {
+//     //   slidesPerView: 2,
+//     //   //   spaceBetween: 20,
+//     // },
+//     // 1366: {
+//     //   // spaceBetween: 20,
+//     //   slidesPerView: 3,
+//     // },
+//   },
+//   navigation: {
+//     prevEl: '.swiper-button-prev',
+//     nextEl: '.swiper-button-next',
+//   },
+// });
 const swiperStates = new Swiper('.swiper-state', {
   modules: [Autoplay],
   speed: 5000,
@@ -229,11 +233,12 @@ gsap.to('.about', {
 gsap.to('.question__title', {
   scrollTrigger: {
     trigger: '.courses ', // Елемент, який триггерить анімацію
-    start: 'top bottom', // Коли верх другого блоку досягне низу вікна
+    start: 'top bottom-=10%', // Коли верх другого блоку досягне низу вікна
     end: 'top center', // Коли верх другого блоку досягне верху вікна
     scrub: true, // Анімація синхронізується зі скролом
     pin: '.question__title', // Фіксуємо перший блок на місці
     pinSpacing: false, // Видаляємо простір, коли блокує перший блок
+    // markers: true,
   },
   opacity: 0,
   scale: 0.8,
@@ -261,9 +266,13 @@ const swiperReviews = new Swiper('.swiper-reviews', {
   autoplay: { delay: 10 },
 });
 const swiperYoutube = new Swiper('.swiper-youtube', {
-  // modules: [Autoplay],
+  modules: [Navigation],
   speed: 1500,
   slidesPerView: 'auto',
+  navigation: {
+    prevEl: '.swiper-button-prev-youtube',
+    nextEl: '.swiper-button-next-youtube',
+  },
   // autoplay: { delay: 10 },
 });
 
@@ -389,14 +398,14 @@ const heroTl = gsap.timeline({
     trigger: '.about',
     start: 'top bottom', // when the top of the trigger hits the top of the viewport
     end: 'center center', // end after scrolling 500px beyond the start
-    scrub: 1,
+    scrub: 2,
     // smooth scrubbing, takes 1 second to "catch up" to the
     // markers: true,
   },
 });
 heroTl.to('.hero-text-content', {
   opacity: 0.2,
-  yPercent: -200,
+  yPercent: -30,
 
   // duration: 1,
   // ease: 'bounce.out',

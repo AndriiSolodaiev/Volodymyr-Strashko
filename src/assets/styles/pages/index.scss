@@ -1,7 +1,36 @@
 section {
   background-color: $color-body;
   position: relative;
+
+
 }
+
+// @include desktop {
+//   header {
+//     left: 50%;
+//     transform: translateX(-50%);
+//   }
+
+//   .page__content,
+//   header,
+//   footer {
+//     overflow: hidden;
+//     margin-left: auto;
+//     margin-right: auto;
+//     max-width: 1920px;
+
+//     .hero-bg {
+//       height: auto;
+
+//       .hero-img {
+//         height: auto
+//       }
+//     }
+//   }
+// }
+
+
+
 
 .hero {
   position: relative;
@@ -87,7 +116,7 @@ section {
 
   .social-list {
     justify-content: flex-start;
-    gap: 70px;
+    gap: 36px;
   }
 
   .section-text-wrap {
@@ -104,8 +133,8 @@ section {
       pointer-events: none;
       display: block;
       width: 100%;
-      @include adaptive-padding(48, 16, left);
-      @include adaptive-padding(48, 16, right);
+      // @include adaptive-padding(48, 16, left);
+      // @include adaptive-padding(48, 16, right);
     }
 
     .hero-img {
@@ -136,7 +165,7 @@ section {
 
     .social-list {
       justify-content: flex-start;
-      gap: 70px;
+      gap: 36px;
     }
 
     .section-text-wrap {
@@ -145,6 +174,12 @@ section {
       justify-content: space-between;
     }
   }
+
+  @include laptop {
+    gap: 70px;
+
+  }
+
 }
 
 .hero-text-content {
@@ -391,6 +426,7 @@ section {
   @include adaptive-padding(108, 36, top);
   @include adaptive-padding(48, 16, left);
   @include adaptive-padding(48, 16, right);
+  @include adaptive-padding(140, 70, bottom);
 
   @include laptop {
     padding-left: 18.2%;
@@ -402,6 +438,11 @@ section {
     position: relative;
     width: 100%;
     padding: 0;
+  }
+
+  @media screen and (min-width: 2000px) {
+    min-height: 60vh;
+
   }
 }
 
@@ -434,9 +475,7 @@ section {
     max-height: 500px;
   }
 
-  @include tablet {
-    max-height: none;
-  }
+
 
   li {
     width: calc((100% - 24px * 2) / 3);
@@ -445,12 +484,13 @@ section {
     img {
       height: 100%;
       opacity: 0.5;
-      object-fit: contain;
+      // object-fit: contain;
+      width: auto;
     }
   }
 
   @include tablet {
-    max-height: auto;
+    max-height: none;
 
     li {
       width: calc((100% - 24px * 3) / 4);
@@ -470,10 +510,11 @@ section {
   width: 100%;
   position: relative;
   overflow: hidden;
-  @include adaptive-padding(140, 70, top);
+
 
   img {
-    width: 100%
+    width: 100%;
+    filter: grayscale(1)
   }
 
   .right-border {
@@ -532,7 +573,7 @@ section {
   display: flex;
   flex-direction: column;
 
-  @include laptop {
+  @include tablet {
     display: none;
   }
 }
@@ -540,22 +581,169 @@ section {
 .swiper-projects {
   display: none;
 
-  @include laptop {
+  @include tablet {
     display: block;
+
+    .swiper-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-start;
+    }
   }
 
   .swiper-slide {
     width: fit-content !important;
     margin-left: 12px;
   }
+
 }
+
+.swiper-btns {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+}
+
+.swiper-button-prev {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $accent-color;
+  border: 1px solid $accent-color;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.4s ease-in-out;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: $wc;
+    transform: translateY(-101%);
+    transition: transform 0.4s ease-in-out;
+    border-radius: 50%;
+  }
+
+  svg {
+    position: relative;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+
+    path {
+      transition: stroke 0.4s ease-in-out;
+      stroke: $wc;
+    }
+  }
+
+  &.swiper-button-disabled {
+    border: 1px solid #807E7C;
+    background-color: $wc;
+    cursor: no-drop;
+
+    svg path {
+      stroke: #807E7C;
+    }
+  }
+}
+
+.swiper-button-next {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $accent-color;
+  border: 1px solid $accent-color;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.4s ease-in-out;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: $wc;
+    transform: translateY(-101%);
+    transition: transform 0.4s ease-in-out;
+    border-radius: 50%;
+  }
+
+  svg {
+    position: relative;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    transform: rotate(180deg);
+
+    path {
+      transition: stroke 0.4s ease-in-out;
+      stroke: $wc;
+    }
+  }
+
+  &.swiper-button-disabled {
+    border: 1px solid #807E7C;
+    background-color: $wc;
+    cursor: no-drop;
+
+    svg path {
+      stroke: #807E7C;
+    }
+  }
+
+}
+
+.desktop {
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    &:before {
+      transform: translateY(0%);
+    }
+
+    svg path {
+      stroke: $accent-color;
+    }
+  }
+}
+
+.swiper-button-next-youtube {
+  @extend .swiper-button-next
+}
+
+;
+
+.swiper-button-prev-youtube {
+  @extend .swiper-button-prev
+}
+
 
 .project--pc {
 
   display: flex;
   flex-direction: column-reverse;
   gap: 24px;
-  @include adaptive-width(296, 240);
+  @include adaptive-width(296, 150);
 
   .project__text-wrap--pc {
     display: flex;
@@ -585,14 +773,14 @@ section {
     align-items: center;
     border: 1px solid rgba(0, 0, 0, 0.10);
     transition: border-color 0.4s ease-in-out;
-    @include adaptive-width(296, 240);
-    @include adaptive-height(268, 223);
+    @include adaptive-width(296, 150);
+    @include adaptive-height(268, 130);
 
 
     img {
       filter: grayscale(1);
-      max-width: 70%;
-      max-height: 70%;
+      width: 76%;
+      // max-height: 70%;
       transition: transform 0.4s ease-in-out;
 
     }
@@ -703,7 +891,7 @@ section {
 .swiper-state {
   @include adaptive-padding(90, 48, bottom);
 
-  @include laptop {
+  @include tablet {
     display: none;
   }
 
@@ -728,14 +916,14 @@ section {
 .state-list {
   display: none;
 
-  @include laptop {
+  @include tablet {
     // display: flex;
     // flex-wrap: wrap;
     // column-gap: 60px;
     // row-gap: 45px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 60px;
     grid-row-gap: 45px;
     padding-bottom: 100px;
@@ -745,8 +933,20 @@ section {
     img {
       height: 40px;
       width: auto;
+      max-width: none;
+
+      @media screen and (min-width: 768px) and (max-width: 952px) {
+        height: 31px;
+      }
     }
   }
+
+  @include laptop {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  ;
 
   @include desktop {
     column-gap: 72px;
@@ -876,7 +1076,7 @@ section {
 
       .text-wrap p {
         color: $gray;
-        font-weight: 500;
+        font-weight: 400;
         font-style: normal;
         line-height: 140%;
         @include adaptive-font(20, 13);
@@ -946,11 +1146,11 @@ section {
 
           p {
             color: $accent-color;
-            letter-spacing: 0.1em;
+            // letter-spacing: 0.1em;
             text-align: center;
             font-size: 15px;
             font-style: normal;
-            font-weight: 300;
+            font-weight: 400;
             line-height: normal;
             transition: color 0.5s ease-in-out;
           }
@@ -1369,6 +1569,17 @@ section {
     max-width: 1728px;
   }
 
+  @media screen and (min-width: 1920px) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+  }
+
+  @media screen and (min-width: 3200px) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+  }
 }
 
 .courses {
@@ -1522,6 +1733,11 @@ section {
   justify-content: center;
   gap: 10px;
   @include adaptive-padding(48, 36, top);
+
+  @include tablet {
+    gap: 72px;
+    justify-content: flex-start;
+  }
 
   @include laptop {
     display: none;
@@ -1758,7 +1974,7 @@ section {
 
 
     @include tablet {
-      width: calc((100% - 24px) / 2);
+      width: calc((100% - 48px) / 3);
       border: none;
       padding: 0;
 
@@ -1877,6 +2093,10 @@ section {
         transition: transform 0.5s ease-in-out;
       }
     }
+
+    .swiper-btns {
+      margin-top: 20px;
+    }
   }
 }
 
@@ -1907,6 +2127,9 @@ section {
 
   img {
     filter: grayscale(1);
+    // object-fit: cover;
+    // object-position: top;
+    // height: 55vw;
   }
 }
 
